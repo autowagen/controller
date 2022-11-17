@@ -1,0 +1,5 @@
+{
+  "hoverboard": {
+    "serialPort": "/dev/ttyUSB0"
+  }
+}

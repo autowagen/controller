@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<button id="close">close</button>
+</div>
+<div>
+    <input type="text" id="name" value="websocket">
+    <button id="rename">rename</button>
+</div>
+
+<script>
+    (function () {
+        // connect to websocket
+        const uri = window.location.protocol.replace('http', 'ws') + '//' + window.location.host + '/ws';
+        const ws = new WebSocket(uri);
+
+        ws.onopen = () => console.log('Connected');
+        ws.onmessage = (evt) => console.log(evt.data);
+
+        // let i = 0;
+        // setInterval(() => {
+        //     ws.send('Hello, Server! i='+i);
+        //     i++;
+        // }, 1000);
+
+        document.querySelector('#close').addEventListener('click', () => {
+            ws.close();
+        });
+
+        document.querySelector('#rename').addEventListener('click', () => {
+            const name = document.querySelector('#name').value;
+            ws.send(JSON.stringify({
+                command: 'rename',
+                data: {
+                    name
+                }
+            }))
+        });
+    })();
+</script>
+</body>
+</html>
