@@ -1,5 +1,6 @@
 {
   "hoverboard": {
-    "serialPort": "/dev/ttyUSB0"
+    "serialPort": "/dev/ttyUSB0",
+    "mock": true
   }
 }

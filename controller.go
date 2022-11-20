@@ -6,8 +6,8 @@ import (
 	"github.com/autowagen/controller/web"
 )
 
-func Start(mockedBoard bool) {
+func Start() {
 	config.Init()
-	board_access.InitBoard(mockedBoard)
+	board_access.InitBoard(config.GetHoverboardMock())
 	web.InitWeb()
 }

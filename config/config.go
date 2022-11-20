@@ -37,3 +37,7 @@ func GetHoverboardSerialPort() string {
 	}
 	return v
 }
+
+func GetHoverboardMock() bool {
+	return gjson.Get(configJson, "hoverboard.mock").Bool()
+}
